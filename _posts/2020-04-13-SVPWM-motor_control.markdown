@@ -50,7 +50,7 @@ One subtlety is that the three coil currents aren't independent. Since there is
 no center tap, by Kirchoff's current law $$i_u + i_v + i_w=0$$ for the currents
 $$i$$ entering each of the three coils. In other words you only have two degrees
 of freedom in controlling the coil currents, since $$i_w = -(i_u + i_v)$$.
-Still, two degrees of freedom is enough to specify any $$\vec{B}$$ that lies in
+Still, two degrees of freedom are enough to specify any $$\vec{B}$$ that lies in
 a plane. It just takes a bit of trigonometry to work out the necessary currents.
 
 A second subtlety is that, practically speaking, you control the time-averaged
