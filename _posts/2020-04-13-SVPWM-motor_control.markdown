@@ -86,7 +86,7 @@ specifically to give a sinusoidal back-EMF profile: so-called
 Long story short, the SVPWM technique isn't a *precise* method of control for
 BLDC motors, but it does reasonably well as can be seen in the video.
 
-# The hardware and code
+# The code and hardware
 
 This code is [available on Github](https://github.com/jkboyce/svpwm-stm32).
 It runs as-is on a NUCLEO-F446RE development board with mounted
@@ -106,16 +106,4 @@ this could be a problem. You can adjust the max. driving current in this line:
 - A mini USB cable (not micro USB!) to connect your computer to
 the NUCLEO's onboard ST-LINK debugger.
 
-[The Discovery Book](https://docs.rust-embedded.org/discovery/) for embedded
-Rust development has detailed instructions on how to set up a Rust development
-environment targeting Arm microcontrollers. The book focuses on the [STM32F3
-Discovery Kit](https://www.st.com/en/evaluation-tools/stm32f3discovery.html)
-board, which is very similar to the NUCLEO used in this project.
-
-When OpenOCD, GDB, and Rust are set up as described in the book, you can compile
-and run with:
-
-```
-cargo run --release
-```
 
