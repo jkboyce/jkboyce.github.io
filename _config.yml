@@ -1,0 +1,13 @@
+title: Jack's notebook
+email: jboyce@gmail.com
+author: Jack Boyce
+description: An online notebook of things I'm working on or thinking about.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
+github_username: jkboyce
+youtube_username: jboyce2
+
+# Build settings
+theme: minima
+plugins:
+  - jekyll-feed
