@@ -10,7 +10,7 @@ A project I'm working on calls for a reaction wheel actuated by a small,
 lightweight motor. By "lightweight" I mean the motor + reaction wheel needs to
 be less than ~10 grams. Motors typically used in
 reaction wheels are significantly heavier than this, in part because they
-include features like optical encoders that simplify the control algorithm. So
+include features like optical encoders that help the control algorithm. So
 I started to investigate whether the small brushless DC (BLDC) motors used
 on flying drones could be used in such a low-weight, low-speed reaction wheel
 system.
@@ -51,7 +51,7 @@ no center tap, by Kirchoff's current law $$i_u + i_v + i_w=0$$ for the currents
 $$i$$ entering each of the three coils. In other words you only have two degrees
 of freedom in controlling the coil currents, since $$i_w = -(i_u + i_v)$$.
 Still, two degrees of freedom are enough to specify any $$\vec{B}$$ that lies in
-a plane. It just takes a bit of trigonometry to work out the necessary currents.
+a plane. A bit of trigonometry works out the necessary currents.
 
 A second subtlety is that, practically speaking, you control the time-averaged
 current through each coil using pulse width modulation of the driving voltage. A
@@ -75,14 +75,22 @@ toward zero.
 ![Scope screen capture](/assets/F1103-motor-0.22-duty.png)
 
 A final subtlety is that SVPWM is a precise method of control only to the extent
-that the motor behaves in an idealized way. In an ideal motor there is a
-sinusoidal relationship between the rotor's magnetic flux through the motor
-coils ("linkage flux"), and turning angle. (Or alternatively, the motor
-generates a precisely sinusoidal back-EMF when turned at a constant speed.) Due
-to the way the coils are wound, most small motors depart somewhat from this
-idealized shape (a trapezoidal back-EMF is most common). Some motors are wound
-specifically to give a sinusoidal back-EMF profile: so-called
-"sinusoidally-wound" motors, or PMSMs (permanent magnet synchronous motors).
+that the motor behaves in an idealized way. In this case the main departures from
+ideal behavior are:
+- Non-sinusoidal back EMF. In a textbook motor there is a sinusoidal
+relationship between the rotor's magnetic flux through the motor coils ("linkage
+flux"), and turning angle. (Or alternatively, the motor generates a precisely
+sinusoidal back-EMF when turned at constant speed.) Due to the way the coils are
+wound in real motors, however, most BLDC motors give a more trapezoidal back EMF
+profile. Some motors are wound specifically to give a sinusoidal back-EMF:
+so-called "sinusoidally-wound" motors, or PMSMs (permanent magnet synchronous
+motors).
+- Nonzero reluctance torque. Reluctance torque is caused by the permanent
+magnets in the rotor interacting with iron in the stator, *in the absence of
+stator current*. It's the bumpiness you feel when you turn the motor with
+your fingers when it's turned off. If you look closely at the video you can see
+some small-scale jerkiness in the movement of the rotor; this is reluctance torque.
+
 Long story short, the SVPWM technique isn't a *precise* method of control for
 BLDC motors, but it does reasonably well as can be seen in the video.
 
